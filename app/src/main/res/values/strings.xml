@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HomeWorkThree</string>
+    <string name="profile_info">Profile Info</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="firstname">FirstName</string>
+    <string name="lastname">LastName</string>
+    <string name="age">Age</string>
+    <string name="save">save</string>
+    <string name="clear">clear</string>
+</resources>

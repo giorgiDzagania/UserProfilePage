@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_profile_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:gravity="start"
+        android:text="@string/profile_info"
+        android:textColor="@color/accent"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/linear_Layout_main_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/etGmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/background_shape"
+            android:layout_marginTop="20dp"
+            android:hint="@string/email"
+            android:maxLength="63"/>
+
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_shape"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:hint="@string/username" />
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_shape"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:inputType="text"
+            android:maxLength="20"
+            android:hint="@string/firstname"/>
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_shape"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:inputType="text"
+            android:maxLength="20"
+            android:hint="@string/lastname"/>
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_shape"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:inputType="number"
+            android:maxLength="2"
+            android:hint="@string/age"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="90dp">
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/blue"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:text="@string/save"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/blue"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:text="@string/clear"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_Layout_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="მეილი      ="
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
+            <TextView
+                android:id="@+id/tvGmailResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="gmeil result"
+                android:layout_weight="1"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Username  ="
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
+            <TextView
+                android:id="@+id/tvUserNameResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="username result"
+                android:layout_weight="1"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="სახელი გვარი   ="
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
+            <TextView
+                android:id="@+id/tvFullNameResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Full Name result"
+                android:layout_weight="2"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ასაკი     ="
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
+            <TextView
+                android:id="@+id/tvAgeResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                tools:text="Age result"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
+            android:text="Again"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
