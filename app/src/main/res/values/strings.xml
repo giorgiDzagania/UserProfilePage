@@ -16,7 +16,7 @@
     <string name="invalid_age_message">გთხოვთ შეიყვანოთ ასაკი</string>
     <string name="please_provide_information">გთხოვთ შეავსოთ ინფორმაცია</string>
 
-    <string name="short_click_message">თუ გინდათ მონაცემების ხელახლა შეყვანა დააჭირეთ დიდხანს cancel ღილაკს</string>
+    <string name="short_click_message">დიდხანს დააჭირეთ clear ღილაკს</string>
     <string name="username_hint">Username =</string>
     <string name="meil_hint">მეილი =</string>
     <string name="name_and_surname">სახელი გვარი =</string>

@@ -76,11 +76,6 @@ class MainActivity : AppCompatActivity() {
         binding.linearLayoutMainPage.visibility = View.VISIBLE
         binding.linearLayoutResult.visibility = View.GONE
 
-        binding.etGmail.text.clear()
-        binding.etUserName.text.clear()
-        binding.etFirstName.text.clear()
-        binding.etLastName.text.clear()
-        binding.etAge.text.clear()
     }
 
     private fun profileResult(){
