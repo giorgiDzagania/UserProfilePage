@@ -8,4 +8,18 @@
     <string name="age">Age</string>
     <string name="save">save</string>
     <string name="clear">clear</string>
+
+    <string name="invalid_email_message">გთხოვთ შეიყვანოთ სწორი მეილი</string>
+    <string name="invalid_username_message">Username-ში სიმბოლოების რაოდენობა მინიმუმ 10</string>
+    <string name="empty_first_name_message">გთხოვთ შეიყვანოთ სახელი</string>
+    <string name="empty_last_name_message">გთხოვთ შეიყვანოთ გვარი</string>
+    <string name="invalid_age_message">გთხოვთ შეიყვანოთ ასაკი</string>
+    <string name="please_provide_information">გთხოვთ შეავსოთ ინფორმაცია</string>
+
+    <string name="short_click_message">თუ გინდათ მონაცემების ხელახლა შეყვანა დააჭირეთ დიდხანს cancel ღილაკს</string>
+    <string name="username_hint">Username =</string>
+    <string name="meil_hint">მეილი =</string>
+    <string name="name_and_surname">სახელი გვარი =</string>
+    <string name="age_result">ასაკი =</string>
+    <string name="again">Again</string>
 </resources>

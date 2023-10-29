@@ -1,5 +1,6 @@
 package com.exercise.homeworkthree
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import java.util.regex.Pattern
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -25,33 +27,32 @@ class MainActivity : AppCompatActivity() {
             val userAge = binding.etAge.text.toString()
 
             if (!isValidGmailAddress(gmail)) {
-                Toast.makeText(this, "გთხოვთ შეიყვანოთ სწორი მეილი", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.invalid_email_message, Toast.LENGTH_SHORT).show()
             }else if (!isValidMinUserNameNumber(userName)){
-                Toast.makeText(this, "'Username'-ში სიმბოლოების რაოდენობა მინიმუმ 10", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.invalid_username_message, Toast.LENGTH_SHORT).show()
             }else if (fName.isEmpty()){
-                Toast.makeText(this, "გთხოვთ შეიყვანოთ სახელი", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.empty_first_name_message, Toast.LENGTH_SHORT).show()
             }else if (lName.isEmpty()){
-                Toast.makeText(this, "გთხოვთ შეიყვანოთ გვარი", Toast.LENGTH_SHORT).show()
-            }else if (userAge.isEmpty()){
-                Toast.makeText(this, "გთხოვთ შეიყვანოთ ასაკი", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.empty_last_name_message, Toast.LENGTH_SHORT).show()
+            }else if (!isNotValidAge(userAge) || userAge.isEmpty()){
+                Toast.makeText(this, R.string.invalid_age_message, Toast.LENGTH_SHORT).show()
             }
             else if (isValidGmailAddress(gmail) && isValidMinUserNameNumber(userName)
                 && fName.isNotEmpty() && lName.isNotEmpty() && userAge.isNotEmpty()){
-                //TODO impliment next page
                 profileResult()
                 binding.tvGmailResult.text = gmail
                 binding.tvUserNameResult.text = userName
                 binding.tvFullNameResult.text = "$fName $lName"
                 binding.tvAgeResult.text = userAge
             }else{
-                Toast.makeText(this, "გთხოვთ შეავსოთ ინფორმაცია", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.please_provide_information, Toast.LENGTH_SHORT).show()
             }
         }
 
         // Button short Click shows Toast
         binding.btnClear.setOnClickListener {
-            Toast.makeText(this@MainActivity,
-                "თუ გინდათ მონაცემების ხელახლა შეყვანა დააჭირეთ დიდხანს cancel ღილაკს", Toast.LENGTH_SHORT).show()
+            val message = R.string.short_click_message
+            Toast.makeText(this@MainActivity,message, Toast.LENGTH_SHORT).show()
         }
 
         // Button on Long Click Clears All Fields
@@ -87,17 +88,20 @@ class MainActivity : AppCompatActivity() {
         binding.linearLayoutMainPage.visibility = View.GONE
     }
 
-
     private fun isValidGmailAddress(gmail: String): Boolean {
-        val validPattern = Pattern.compile("^[A-Za-z0-9]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}\$")
+        val validPattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\$")
         val match = validPattern.matcher(gmail)
         return match.matches()
     }
 
     private fun isValidMinUserNameNumber(userNumber:String):Boolean {
-        var validNumber = 10
-        var userNumber = userNumber.length
-        return userNumber >= validNumber
+        val validNumber = 10
+        val number = userNumber.length
+        return number >= validNumber
+    }
+
+    private fun isNotValidAge(userAge: String):Boolean {
+        return userAge != "0"
     }
 
 }
