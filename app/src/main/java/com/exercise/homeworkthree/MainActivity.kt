@@ -11,7 +11,6 @@ import java.util.regex.Pattern
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -27,33 +26,30 @@ class MainActivity : AppCompatActivity() {
             val userAge = binding.etAge.text.toString()
 
             if (!isValidGmailAddress(gmail)) {
-                Toast.makeText(this, R.string.invalid_email_message, Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.invalid_email_message))
             }else if (!isValidMinUserNameNumber(userName)){
-                Toast.makeText(this, R.string.invalid_username_message, Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.invalid_username_message))
             }else if (fName.isEmpty()){
-                Toast.makeText(this, R.string.empty_first_name_message, Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.empty_first_name_message))
             }else if (lName.isEmpty()){
-                Toast.makeText(this, R.string.empty_last_name_message, Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.empty_last_name_message))
             }else if (!isNotValidAge(userAge) || userAge.isEmpty()){
-                Toast.makeText(this, R.string.invalid_age_message, Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.invalid_age_message))
             }
             else if (isValidGmailAddress(gmail) && isValidMinUserNameNumber(userName)
                 && fName.isNotEmpty() && lName.isNotEmpty() && userAge.isNotEmpty()){
                 profileResult()
                 binding.tvGmailResult.text = gmail
                 binding.tvUserNameResult.text = userName
-                binding.tvFullNameResult.text = "$fName $lName"
+                binding.tvFullNameResult.text = getString(R.string.full_name_result,fName,lName)
                 binding.tvAgeResult.text = userAge
             }else{
-                Toast.makeText(this, R.string.please_provide_information, Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.please_provide_information))
             }
         }
 
         // Button short Click shows Toast
-        binding.btnClear.setOnClickListener {
-            val message = R.string.short_click_message
-            Toast.makeText(this@MainActivity,message, Toast.LENGTH_SHORT).show()
-        }
+        binding.btnClear.setOnClickListener { toast(getString(R.string.short_click_message)) }
 
         // Button on Long Click Clears All Fields
         binding.btnClear.setOnLongClickListener {
@@ -68,9 +64,12 @@ class MainActivity : AppCompatActivity() {
         binding.btnAgain.setOnClickListener {
             profileInfoMain()
         }
-
     }
 
+    private fun toast(text: String){
+        Toast.makeText(this@MainActivity,
+            text, Toast.LENGTH_SHORT).show()
+    }
 
     private fun profileInfoMain(){
         binding.linearLayoutMainPage.visibility = View.VISIBLE

@@ -22,4 +22,6 @@
     <string name="name_and_surname">სახელი გვარი =</string>
     <string name="age_result">ასაკი =</string>
     <string name="again">Again</string>
+
+    <string name="full_name_result">%s %s</string>
 </resources>
