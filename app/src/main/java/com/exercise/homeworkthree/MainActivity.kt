@@ -98,5 +98,4 @@ class MainActivity : AppCompatActivity() {
     private fun isNotValidAge(userAge: String):Boolean {
         return userAge != "0"
     }
-
 }
